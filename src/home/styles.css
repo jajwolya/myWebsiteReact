@@ -1,15 +1,109 @@
-/**
- * React Static Boilerplate
- * https://github.com/koistya/react-static-boilerplate
- *
- * Copyright © 2015-2016 Konstantin Tarkus (@koistya)
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+body{
+  margin: 0px;
+}
 
-@media screen and (max-width: 1024px) {
-  .content {
-    padding: 0 16px;
-  }
+.article{
+  display: flex;
+  flex-direction: column;
+}
+
+.left-section{
+  display: flex;
+  width: 100vw;
+}
+
+.menu{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.menu-item{
+  padding: 45px;
+  font-family: 'DINPro';
+  font-weight: bold;
+  font-size: 20px;
+  color: #474747;
+}
+
+.menu-item-active{
+  padding-top: 5px;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-bottom: 0px;
+  font-family: 'DINPro';
+  font-weight: bold;
+  font-size: 20px;
+  color: #a5a5a5;
+}
+
+.right-section{
+  width: 100vw;
+}
+
+.image-one, .image-two, .image-three{
+  margin-top: auto;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image-one{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe5e5;
+}
+
+.title-name{
+  font-size: 250px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Exo';
+  color: white;
+}
+
+.image-two{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #e5e5e5;
+}
+
+.portfolio{
+  color: white;
+  font-weight: bold;
+  font-family: 'DINPro';
+  font-size: 75px;
+  padding: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.image-three{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5e5;
+}
+
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-details{
+  color: white;
+  font-weight: bold;
+  font-family: 'DINPro';
+  font-size: 75px;
+  padding: 30px;
 }

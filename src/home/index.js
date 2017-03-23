@@ -13,7 +13,13 @@ import Layout from '../../components/Layout';
 import s from './styles.css';
 import { title, html } from './index.md';
 
+
 class HomePage extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {status: 0}
+  }
 
   static propTypes = {
     articles: PropTypes.arrayOf(PropTypes.shape({
@@ -24,29 +30,86 @@ class HomePage extends React.Component {
   };
 
   componentDidMount() {
-    document.title = title;
+    document.title = 'Jajwol';
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  scroll(e, element){
+    e.preventDefault();
+    element.scrollIntoView({
+      block: "start",
+      behavior: "smooth"
+    });
   }
 
   render() {
     return (
-      <Layout className={s.content}>
-        <div
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        <h4>Articles</h4>
-        <ul>
-          {this.props.articles.map(article =>
-            <li key={article.url}>
-              <a href={article.url}>{article.title}</a>
-              by {article.author}
-            </li>,
-          )}
-        </ul>
-        <p>
-          <br /><br />
-        </p>
-      </Layout>
+      <article className={s['article']}>
+        <section className={s['left-section']}>
+          <div className={s['menu']}>
+            <div className={
+              this.state.status === 1
+              ?s['menu-item-active']
+              :s['menu-item']}
+              onClick={
+                () => this.setState({stateNum: this.state.status = 1}),
+                (e) => this.scroll(e, this.name)
+              }>
+              JAJWOL
+            </div>
+            <div className={
+              this.state.status === 2
+              ?s['menu-item-active']
+              :s['menu-item']
+            }
+            onClick={
+              ()=>this.setState({stateNum: this.state.status = 2}),
+              (e) => this.scroll(e, this.portfolio)
+            }>
+              PORTFOLIO
+            </div>
+            <div className={
+              this.state.status === 3
+              ?s['menu-item-active']
+              :s['menu-item']
+            }
+            onClick={()=>this.setState({stateNum: this.state.status = 3})}
+            >
+              CONTACT
+            </div>
+          </div>
+        </section>
+        <span ref={(input) => { this.name = input; }}/>
+        <span ref={(input) => { this.portfolio = input; }}/>
+        <span ref={(input) => { this.contact = input; }}/>
+        <section className={s['right-section']}>
+          <div className={s['image-set']}>
+            <div className={s['image-one']} id='jajwol'>
+              <div className={s['title-name']}>
+                JAJWOL
+              </div>
+            </div>
+            <div className={s['image-two']} id='portfolio'>
+              <div className={s['portfolio']}>
+                Graphic Designer
+              </div>
+              <div className={s['portfolio']}>
+                Junior Web Developer
+              </div>
+            </div>
+            <div className={s['image-three']} id='contact'>
+              <div className={s['contact']}>
+                <div className={s['contact-details']}>
+                  jajwolya@outlook.com
+                </div>
+                <div className={s['contact-details']}>
+                  0479 119 764
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
     );
   }
 
